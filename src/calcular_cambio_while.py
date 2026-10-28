@@ -11,7 +11,6 @@ Tu respuesta debe usar el menor número posible usandp primero cuantas más mone
 de 5 cénts posible, luego de 2 y finalmente de 1 (para sumar el total)
 """
 
-
 def calcular_cambio(pago):
 
     tipos_de_mondedas = [5, 2, 1]
