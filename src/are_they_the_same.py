@@ -5,13 +5,13 @@ def comp(array1, array2):
 
     a1 = [121, 144, 19, 161, 19, 144, 19, 11]
     a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
-    assert_comp(a1, a2) al = 
+    assert comp(a1, a2) 
 
     ´´´
-    test.assert_equals(comp(a1, a2), True)
+    test.assert_equals(comp(a1, a2), True) 
     a1 = [121, 144, 19, 161, 19, 144, 19, 11]
     a2 = [11*21, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
-    test.assert_equals(comp(a1, a2), False)
+   assert comp(a1, a2)
     a1 = [121, 144, 19, 161, 19, 144, 19, 11]
     a2 = [11*11, 121*121, 144*144, 190*190, 161*161, 19*19, 144*144, 19*19]
     test.assert_equals(comp(a1, a2), False)
