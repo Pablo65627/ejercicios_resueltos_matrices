@@ -1,79 +1,82 @@
-# By Dimitris_GR from forums
-# Modify Problem Set 31's (Optional) Symmetric Square to return True
-# if the given square is esAntisimetrica and False otherwise.
-# An nxn square is called esAntisimetrica if A[i][j]=-A[j][i]
-# for each i=0,1,...,n-1 and for each j=0,1,...,n-1.
+# Define una rutina que devuelve True si una matriz es
+# atisimetrica y False en otro caso. 
+# Una matriz n*n es antisimetrica si se verifica que 
+# sus elementos mantienen la relación:
+# matriz[i][j] = - matriz[j][i] 
+# para cada i=0,1,...,n-1 y para cada j=0,1,...,n-1.
+
 
 def esMatrizCuadrada(matriz):
-
     numeroFilas = len(matriz)
 
     for fila in matriz:
-
         if len(fila) != numeroFilas:
-
             return False
 
     return True
 
+
 def esAntisimetrica(matriz):
 
     if not esMatrizCuadrada(matriz):
-
         return False
 
-    fila = 0
+    numeroFilas = len(matriz)
 
-    while fila < len(matriz):
-
-        columna = 0
-
-        while columna < len(matriz[fila]):
-
-            if matriz[fila][columna] != -matriz[columna][fila]:
-
+    for i in range(numeroFilas):
+        for j in range(numeroFilas):
+            if matriz[i][j] != -matriz[j][i]:
                 return False
-
-            columna += 1
-
-        fila += 1
 
     return True
 
 
-# CASOS DE PRUEBA
+if __name__ == '__main__':
 
-print(esAntisimetrica([[0, 1, 2],
-                       [-1, 0, 3],
-                       [-2, -3, 0]]))
-# Resultado: True
+    assert esAntisimetrica([[0, 1, 2],
+                            [-1, 0, 3],
+                            [-2, -3, 0]]) is True
 
-print(esAntisimetrica([[0, 0, 0],
-                       [0, 0, 0],
-                       [0, 0, 0]]))
-# Resultado: True
+    assert esAntisimetrica([[0, 0, 0],
+                            [0, 0, 0],
+                            [0, 0, 0]]) is True
 
-print(esAntisimetrica([[0, 1, 2],
-                       [-1, 0, -2],
-                       [2, 2, 3]]))
-# Resultado: False
+    assert esAntisimetrica([[0, 1, 2],
+                            [-1, 0, -2],
+                            [2, 2, 3]]) is False
 
-print(esAntisimetrica([[1, 2, 5],
-                       [0, 1, -9],
-                       [0, 0, 1]]))
-# Resultado: False
+    assert esAntisimetrica([[1, 2, 5],
+                            [0, 1, -9],
+                            [0, 0, 1]]) is False
 
+    assert esAntisimetrica([[1, 2, 5],
+                            [-2, 1, -9],
+                            [-5, 0, 1]]) is False
 
-# MATRICES QUE NO SON CUADRADAS
+    matriz5 = [[1, 0, 0, 0],
+               [0, 1, 1, 0],
+               [0, 0, 0, 1]]
 
-matriz4 = [[1, 0, 0, 0],
-           [0, 1, 1, 0],
-           [0, 0, 0, 1]]
+    assert esAntisimetrica(matriz5) is False
 
-print(esAntisimetrica(matriz4))
-# Resultado: False
+    matriz6 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
 
-matriz5 = [[1, 0, 0, 0, 0, 0, 0, 0, 0]]
+    assert esAntisimetrica(matriz6) is False
 
-print(esAntisimetrica(matriz5))
-# Resultado: False
+    matriz7 = [[1, 0, 0, 0],
+               [0, 1, 0],
+               [0, 0, 0, 1]]
+
+    assert esAntisimetrica(matriz7) is False
+
+    assert esMatrizCuadrada([[1, 0, 0, 0],
+                             [0, 1, 1, 0],
+                             [0, 0, 0, 1]]) is False
+
+    assert esMatrizCuadrada([[1, 0, 0, 0, 0, 0, 0, 0, 0]]) is False
+
+    assert esMatrizCuadrada([[0, 0, 0],
+                             [0, 0, 0],
+                             [0, 0, 0]]) is True
+
+    print("All tests passed")
