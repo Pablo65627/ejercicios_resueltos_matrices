@@ -1,18 +1,13 @@
-def first_n_smallest(number_list, n):
+def first_n_smallest(arr, n):
+    indexed_arr = list(enumerate(arr))
     
-    if n == 0:
-        return []
+    sorted_by_val = sorted(indexed_arr, key=lambda x: x[1])
     
-    list_ordered = sorted(number_list)[:n]
-    smallest = []
+    smallest_n = sorted_by_val[:n]
     
-    for number in number_list:
-        if number in list_ordered:
-            smallest.append(number)
-            
-            list_ordered.remove(number)
-            
-    return smallest
+    smallest_n.sort(key=lambda x: x[0])
+    
+    return [x[1] for x in smallest_n]
 
 if __name__ == '__main__':
   
