@@ -81,4 +81,3 @@ if __name__ == '__main__':
                [0, 0, 0, 1]]
 
     assert esMatrizIdentidad(matrix9) is False
-
