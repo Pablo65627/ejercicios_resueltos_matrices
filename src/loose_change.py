@@ -21,7 +21,7 @@ def loose_change(cents):
 
     change_dict = dict.fromkeys(coin_keys, 0)
     for coin in change:
-        for coin_name in wallet:
+        for coin_name, value in wallet.items():
             if wallet[coin_name] == coin:
                 change_dict[coin_name] += 1
     
