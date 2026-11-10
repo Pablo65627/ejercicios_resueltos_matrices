@@ -17,7 +17,8 @@ def duplicate_encode(word):
             
     return "".join(resultado)
 
-    assert_equals(duplicate_encode("din"),"(((")
-    assert_equals(duplicate_encode("recede"),"()()()")
-    assert_equals(duplicate_encode("Success"),")())())","should ignore case")
-    assert_equals(duplicate_encode("(( @"),"))((")
+if __name__ == "__main__":
+    print(duplicate_encode("din"))
+    print(duplicate_encode("recede"))
+    print(duplicate_encode("Success"))
+    print(duplicate_encode("(( @"))
